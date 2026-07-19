@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jidiga Charan Reddy — Data Analyst / Data Scientist</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Portfolio of Jidiga Charan Reddy — Data Analyst & Data Scientist. ML pipelines, analytics dashboards, and deployed apps across e-commerce, telecom, and job market data.">
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Jidiga Charan Reddy — Data Analyst / Data Scientist">
+<meta property="og:description" content="ML pipelines and analytics dashboards, deployed live — not notebooks. 6 projects, 280K+ records processed, 4 live apps.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOUR-RENDER-URL.onrender.com">
+<meta property="og:image" content="https://YOUR-RENDER-URL.onrender.com/assets/screenshots/churnguard.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#F4F7FB;
+    --surface:#FFFFFF;
+    --surface-2:#EDF1F7;
+    --border:#DCE3ED;
+    --text:#1B2436;
+    --muted:#65708A;
+    --signal:#00B8A0;
+    --signal-dim:#00B8A02A;
+    --amber:#E8963C;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+
+  /* Scanline texture on background */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 3px);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{position:relative;z-index:2;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    background:rgba(244,247,251,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    z-index:100;
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .logo{
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:1rem;
+    color:var(--signal);
+    letter-spacing:0.5px;
+  }
+  .logo span{color:var(--text);}
+  .nav-links{display:flex;gap:28px;}
+  .nav-links a{
+    font-size:0.88rem;
+    color:var(--muted);
+    font-weight:500;
+    transition:color 0.2s;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:focus-visible, a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px;}
+  .nav-cta{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    background:var(--signal);
+    color:var(--ink);
+    padding:8px 16px;
+    border-radius:6px;
+    font-weight:700;
+  }
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 0 60px;
+    position:relative;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 700px 400px at 80% 10%, rgba(0,217,181,0.10), transparent 60%),
+      radial-gradient(ellipse 500px 300px at 10% 80%, rgba(255,179,71,0.06), transparent 60%);
+    z-index:0;
+  }
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    color:var(--signal);
+    font-size:0.82rem;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:8px;height:8px;border-radius:50%;
+    background:var(--signal);
+    box-shadow:0 0 8px var(--signal);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    font-weight:700;
+    line-height:1.05;
+    margin-bottom:18px;
+    max-width:800px;
+  }
+  .hero h1 .accent{color:var(--signal);}
+  .hero-sub{
+    font-size:1.1rem;
+    color:var(--muted);
+    max-width:600px;
+    margin-bottom:36px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+  .btn{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.95rem;
+    padding:13px 26px;
+    border-radius:8px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:all 0.2s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--signal);color:var(--ink);}
+  .btn-primary:hover{background:#00f0c8;transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px);}
+
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3, auto);
+    gap:48px;
+    border-top:1px solid var(--border);
+    padding-top:32px;
+    max-width:600px;
+  }
+  .stat-num{
+    font-family:var(--font-mono);
+    font-size:1.7rem;
+    font-weight:700;
+    color:var(--signal);
+  }
+  .stat-label{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+
+  /* SECTION HEADERS */
+  .section-pad{padding:100px 0;}
+  .sec-head{margin-bottom:48px;}
+  .sec-tag{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--signal);
+    margin-bottom:10px;
+    display:block;
+  }
+  .sec-title{
+    font-family:var(--font-display);
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    font-weight:600;
+  }
+  .sec-desc{color:var(--muted);max-width:600px;margin-top:12px;}
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:60px;
+    align-items:start;
+  }
+  .avatar-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px;
+    text-align:center;
+  }
+  .avatar{
+    width:110px;height:110px;
+    margin:0 auto 20px;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--signal), #007a68);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);
+    font-size:2.2rem;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .avatar-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;}
+  .avatar-role{color:var(--muted);font-size:0.9rem;margin-top:4px;margin-bottom:20px;}
+  .avatar-links{display:flex;flex-direction:column;gap:10px;text-align:left;border-top:1px solid var(--border);padding-top:20px;}
+  .avatar-links a{
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    transition:color 0.2s;
+  }
+  .avatar-links a:hover{color:var(--signal);}
+  .about-text p{color:var(--muted);margin-bottom:16px;}
+  .about-text p strong{color:var(--text);}
+
+  .timeline{margin-top:28px;border-left:2px solid var(--border);padding-left:24px;}
+  .tl-item{margin-bottom:22px;position:relative;}
+  .tl-item::before{
+    content:"";
+    position:absolute;left:-30px;top:4px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--ink);
+    border:2px solid var(--signal);
+  }
+  .tl-year{font-family:var(--font-mono);color:var(--signal);font-size:0.78rem;}
+  .tl-title{font-weight:600;margin:4px 0 2px;}
+  .tl-sub{color:var(--muted);font-size:0.88rem;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:20px;}
+  .skill-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px;
+  }
+  .skill-card h4{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--signal);
+    margin-bottom:14px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+  }
+  .tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-size:0.82rem;
+    padding:5px 12px;
+    border-radius:6px;
+  }
+
+  /* SPOTLIGHT FEATURED CARD */
+  .featured-card{
+    background:linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+    border:1px solid var(--signal-dim);
+    border-radius:16px;
+    padding:40px;
+    margin-bottom:40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .featured-card::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg, var(--signal), transparent);
+  }
+  .featured-badge{
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    color:var(--signal);
+    background:var(--signal-dim);
+    border:1px solid var(--signal);
+    padding:5px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:20px;
+  }
+  .featured-badge::before{
+    content:"★";
+  }
+  .featured-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:36px;
+    align-items:center;
+  }
+  .featured-visual{
+    background:#0B1120;
+    border:1px solid var(--border);
+    border-radius:12px;
+    aspect-ratio:16/10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .featured-visual img{width:100%;height:100%;object-fit:contain;background:#0B1120;}
+  .featured-visual-placeholder{
+    color:var(--muted);
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    text-align:center;
+    padding:20px;
+  }
+  .featured-title{
+    font-family:var(--font-display);
+    font-size:1.7rem;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+
+  /* PROJECTS */
+  .project-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:32px;
+    margin-bottom:24px;
+    transition:border-color 0.25s, transform 0.25s;
+  }
+  .project-card:hover{border-color:var(--signal-dim);transform:translateY(-3px);}
+  .project-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:20px;flex-wrap:wrap;margin-bottom:14px;
+  }
+  .project-title{font-family:var(--font-display);font-size:1.3rem;font-weight:600;}
+  .project-tech{color:var(--muted);font-size:0.82rem;font-family:var(--font-mono);margin-top:6px;}
+  .project-desc{color:var(--muted);margin:14px 0 18px;}
+  .metric-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
+  .metric-chip{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    background:var(--surface-2);
+    border:1px solid var(--signal-dim);
+    color:var(--signal);
+    padding:6px 12px;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .metric-chip::after{
+    content:"";
+    width:6px;height:12px;
+    background:var(--signal);
+    animation:blink 1.1s step-end infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  .project-highlights{margin-bottom:20px;padding-left:18px;}
+  .project-highlights li{
+    color:var(--muted);
+    font-size:0.92rem;
+    margin-bottom:6px;
+    position:relative;
+  }
+  .project-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-sm{
+    font-size:0.85rem;
+    padding:9px 18px;
+  }
+
+  /* CERTS */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px,1fr));gap:20px;}
+  .cert-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px;
+    border-left:3px solid var(--amber);
+    display:flex;  
+    flex-direction:column;
+  }
+  .cert-card h4{font-size:1rem;margin-bottom:8px;}
+  .cert-card p{color:var(--muted);font-size:0.86rem;}
+  .cert-link{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--signal);
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    width:fit-content;
+    transition:opacity 0.2s;
+  }
+  .cert-link:hover{opacity:0.75;}
+
+  /* CONTACT / FOOTER */
+  .contact-section{
+    text-align:center;
+    padding:100px 0 60px;
+  }
+  .contact-section .sec-title{margin-bottom:14px;}
+  .contact-section .sec-desc{margin:0 auto 36px;}
+  .contact-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+  footer{
+    border-top:1px solid var(--border);
+    padding:28px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    color:var(--muted);
+    font-size:0.85rem;
+  }
+  footer .foot-links{display:flex;gap:20px;}
+  footer a:hover{color:var(--signal);}
+
+  @media (max-width:768px){
+    .featured-grid{grid-template-columns:1fr;}
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;
+      background:var(--ink);
+      border-bottom:1px solid var(--border);
+      flex-direction:column;
+      padding:20px 24px;
+      gap:18px;
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .hero-stats{grid-template-columns:repeat(3,1fr);gap:20px;}
+  }
+
+  /* PREMIUM FEATURES ADDED STYLES */
+  .skill-used{
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    color:var(--muted);
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .nav-links a.active{
+    color:var(--signal);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">JCR<span>.dev</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Open to Data Analyst / Data Scientist roles</span>
+    <h1>Turning raw data into <span class="accent">decisions that ship.</span></h1>
+    <p class="hero-sub">I'm Jidiga Charan Reddy — a final-year CS & Business Systems student who builds end-to-end ML pipelines and analytics dashboards, then actually deploys them. Not notebooks. Live apps.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="#" onclick="document.getElementById('resumeModal').style.display='flex';return false;" class="btn btn-ghost">View Resume 👁</a><a href="assets/resume1.pdf" download="Jidiga_Charan_Reddy_Resume.pdf" class="btn btn-ghost">Download ⭳</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">280K+</div>
+        <div class="stat-label">Records processed</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Live deployed apps</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="sec-tag">// about</span>
+        <h2 class="sec-title">Background</h2>
+        <div class="about-text" style="margin-top:20px;">
+          <p><strong>Passionate about turning raw data into real business impact</strong> — with hands-on experience building end-to-end analytics and ML solutions across e-commerce, telecom, and job market domains.</p>
+          <p>Delivered 3 production-grade ML projects across 100K+ real records — including churn prediction (ROC-AUC 0.8338) and salary forecasting (MAE $34,885) — all live on Streamlit Cloud. Certified in SQL (Advanced) by HackerRank and Data Analytics by Deloitte Australia.</p>
+          <p>Currently seeking a <strong>Data Analyst or Data Scientist</strong> role where I can contribute from day one.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2023 — 2027</div>
+            <div class="tl-title">B.Tech, Computer Science & Business Systems</div>
+            <div class="tl-sub">Vellore Institute of Technology (VIT-AP) · CGPA 8.14/10.0</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2023</div>
+            <div class="tl-title">Class XII — Intermediate</div>
+            <div class="tl-sub">Ignite Junior College · 93.1%</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2021</div>
+            <div class="tl-title">Class X — Secondary Education</div>
+            <div class="tl-sub">Dilsukhnagar Public School · GPA 10.0/10.0</div>
+          </div>
+        </div>
+      </div>
+      <div class="avatar-card">
+        <div class="avatar">JCR</div>
+        <div class="avatar-name">Jidiga Charan Reddy</div>
+        <div class="avatar-role">Data Analyst / Data Scientist</div>
+        <div class="avatar-links">
+          <a href="mailto:charanreddyjediga@gmail.com">Email <span>↗</span></a>
+          <a href="tel:+919573098892">Phone <span>↗</span></a>
+          <a href="https://linkedin.com/in/jidiga-charan-reddy-0b2a99229" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://github.com/okmijnuhb-maker" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+          <a href="#" style="pointer-events:none;">Amaravati, India</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal" id="skills" style="background:var(--surface);">  <div class="wrap">    <span class="sec-tag">// stack</span>    <h2 class="sec-title">Skills</h2>    <div class="skills-grid" style="margin-top:32px;">      <div class="skill-card">        <h4>Languages</h4>        <div class="tag-list">          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span>        </div>        <div class="skill-used">Used in: All 6 projects</div>      </div>      <div class="skill-card">        <h4>ML & Statistical Modeling</h4>        <div class="tag-list">          <span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Gradient Boosting</span><span class="tag">GridSearchCV</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">Random Forest</span><span class="tag">Hypothesis Testing</span>        </div>        <div class="skill-used">Used in: ChurnGuard AI, Job Market Intelligence, E-Commerce Analytics</div>      </div>      <div class="skill-card">        <h4>Analytics & Visualization</h4>        <div class="tag-list">          <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">DAX</span><span class="tag">Excel</span><span class="tag">Plotly</span><span class="tag">Streamlit</span>        </div>        <div class="skill-used">Used in: ChurnGuard AI, E-Commerce Analytics, WeatherAI</div>      </div>      <div class="skill-card">        <h4>NLP</h4>        <div class="tag-list">          <span class="tag">spaCy</span><span class="tag">NLTK VADER</span><span class="tag">Sentiment Analysis</span><span class="tag">Text Processing</span>        </div>        <div class="skill-used">Used in: Job Market Intelligence Platform</div>      </div>      <div class="skill-card">        <h4>Business & Finance</h4>        <div class="tag-list">          <span class="tag">Market Analysis</span><span class="tag">NPV / IRR</span><span class="tag">Ratio Analysis</span>        </div>        <div class="skill-used">Used in: Indian IT Sector Financial Analysis</div>      </div>      <div class="skill-card">        <h4>Web</h4>        <div class="tag-list">          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>        </div>        <div class="skill-used">Used in: This portfolio, Autonomous AI Agent</div>      </div>    </div>  </div></section>
+
+<section class="section-pad reveal" id="projects">
+  <div class="wrap">
+    <span class="sec-tag">// work</span>
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-desc">Six end-to-end builds — from raw data to deployed, working apps.</p>
+    <div style="margin-top:40px;">
+
+      <!-- FEATURED PROJECT SPOTLIGHT -->
+      <div class="featured-card">
+        <span class="featured-badge">Featured Project</span>
+        <div class="featured-grid">
+          <div>
+            <div class="featured-title">ChurnGuard AI — Intelligent Customer Retention System</div>
+            <div class="project-tech">Python · Scikit-learn · XGBoost · SHAP · Power BI · Streamlit</div>
+            <p class="project-desc">ML pipeline predicting telecom churn on 7,032 records with real-time inference and explainable AI — deployed as a live prediction app with an interactive Power BI risk dashboard.</p>
+            <div class="metric-row">
+              <span class="metric-chip">ROC-AUC 0.8338</span>
+              <span class="metric-chip">F1 0.6225</span>
+              <span class="metric-chip">SHAP explainability</span>
+            </div>
+            <ul class="project-highlights">
+              <li>Compared Logistic Regression, Random Forest, XGBoost — best selected via ROC-AUC</li>
+              <li>SMOTE oversampling to fix class imbalance</li>
+              <li>SHAP explainability — tenure, contract type, payment method as top churn drivers</li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://customerchurnprediction-ohctytlym3cst3blssgwxf.streamlit.app" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="https://github.com/okmijnuhb-maker/churnguard-ai" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="featured-visual">
+            <img src="assets/screenshots/churnguard.png" alt="ChurnGuard AI dashboard showing customer churn risk predictions and SHAP feature importance chart">
+          </div>
+        </div>
+      </div>
+
+      <!-- REGULAR PROJECTS -->
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Brazilian E-Commerce 360° Analytics Platform</div>
+            <div class="project-tech">Python · MySQL · Scikit-learn · Power BI</div>
+          </div>
+        </div>
+        <p class="project-desc">End-to-end analytics pipeline on 119,143 real transactions — from raw ingestion to ML deployment and executive dashboarding.</p>
+        <div class="metric-row">
+          <span class="metric-chip">ROC-AUC 0.73</span>
+          <span class="metric-chip">87% churn recall</span>
+          <span class="metric-chip">R$13.8M analyzed</span>
+        </div>
+        <ul class="project-highlights">
+          <li>4 ML models: RFM Segmentation, K-Means, Random Forest, Linear Regression</li>
+          <li>15 advanced SQL queries — window functions, nested subqueries, cross-table joins</li>
+          <li>5-page Power BI dashboard with 10 custom DAX measures</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/okmijnuhb-maker/Brazilian-E-Commerce-360-Analytics-Platform" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Job Market Intelligence Platform</div>
+            <div class="project-tech">Python · MySQL · Scikit-learn · spaCy · NLTK · Plotly · Streamlit</div>
+          </div>
+        </div>
+        <p class="project-desc">Live platform analyzing 929 real US job listings across 6 data roles for skill demand, sentiment, and salary trends.</p>
+        <div class="metric-row">
+          <span class="metric-chip">MAE $34,885</span>
+          <span class="metric-chip">R² 0.429</span>
+          <span class="metric-chip">p = 0.0000</span>
+        </div>
+        <ul class="project-highlights">
+          <li>13 advanced SQL queries — CTEs, NTILE, window functions</li>
+          <li>Proved Data Scientists earn significantly more than Data Analysts (T-test, Mann-Whitney)</li>
+          <li>8-page interactive web app with live ML inference</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://job-market-charan.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo ↗</a>
+          <a href="https://github.com/okmijnuhb-maker/job-market-intelligence-platform" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-title">WeatherAI — Climate Intelligence System</div>
+            <div class="project-tech">Python · Streamlit · XGBoost · Scikit-learn · Plotly · OpenWeather API</div>
+          </div>
+        </div>
+        <p class="project-desc">AI weather system trained on 142,193 Australian weather records, combining live data with ML predictions for industry task recommendations.</p>
+        <div class="metric-row">
+          <span class="metric-chip">82.30% accuracy</span>
+          <span class="metric-chip">AUC 0.9305</span>
+          <span class="metric-chip">R² 0.8913</span>
+        </div>
+        <ul class="project-highlights">
+          <li>XGBoost Classifier (rain) + XGBoost Regressor (temperature)</li>
+          <li>6-page dashboard: Predict, Recommend, Alerts, Report, Insights</li>
+          <li>F1-optimized threshold (0.61) to handle class imbalance</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://weather-ai-project-j-charan-reddy.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo ↗</a>
+          <a href="https://github.com/okmijnuhb-maker/weather-ai-project" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Autonomous AI Agent</div>
+            <div class="project-tech">FastAPI · Groq (Llama 3.3-70B) · ChromaDB · JavaScript · Render</div>
+          </div>
+        </div>
+        <p class="project-desc">Multi-capability conversational AI agent with 14 tools, real-time web search, and a ChatGPT-style interface.</p>
+        <div class="metric-row">
+          <span class="metric-chip">14 tools</span>
+          <span class="metric-chip">Streaming responses</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Long-term semantic memory via ChromaDB + short-term context buffer</li>
+          <li>File analysis (PDF/DOCX/CSV), voice input, calendar management</li>
+          <li>Session export, dark/light mode, ChatGPT-style history</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://autonomous-ai-agent-gdcx.onrender.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo ↗</a>
+          <a href="https://github.com/okmijnuhb-maker/autonomous-ai-agent" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-title">Indian IT Sector — Financial Analysis & DCF Valuation</div>
+            <div class="project-tech">Microsoft Excel · Financial Modeling</div>
+          </div>
+        </div>
+        <p class="project-desc">14-sheet DCF valuation model for TCS, Infosys, HCL Tech, Tech Mahindra, and Wipro using real Screener.in data (FY22–FY25).</p>
+        <div class="metric-row">
+          <span class="metric-chip">5 companies</span>
+          <span class="metric-chip">14 sheets</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Full formula chain: CAPM → WACC → FCF Projections → DCF Valuation</li>
+          <li>Flagged Infosys, HCL Tech, and Wipro as undervalued vs intrinsic value</li>
+          <li>Bull/Base/Bear scenario analysis with sensitivity and break-even growth</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/okmijnuhb-maker/Indian-it-sector-financial-analysis" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal" id="certs" style="background:var(--surface);">
+  <div class="wrap">
+    <span class="sec-tag">// credentials</span>
+    <h2 class="sec-title">Certifications</h2>
+    <div class="cert-grid" style="margin-top:32px;">
+      <div class="cert-card">
+        <h4>Deloitte Australia — Data Analytics Job Simulation</h4>
+        <p>Analyzed manufacturing telemetry data using Tableau to identify machine downtime across 4 global factories; built an Excel classification model to assess gender pay equality.</p>
+        <a href="assets/certificates/deloitte-certificate.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card">
+        <h4>Tata Group — GenAI Powered Data Analytics Job Simulation</h4>
+        <p>Exploratory data analysis, risk profiling, AI-based delinquency prediction, and AI-driven collections strategy development.</p>
+        <a href="assets/certificates/tata-certificate.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card">
+        <h4>HackerRank — SQL (Advanced) Certification</h4>
+        <p>Complex queries, joins, CTEs, window functions, and real-world database problem-solving.</p>
+        <a href="assets/certificates/hackerrank-sql-certificate.pdf" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section reveal" id="contact">
+  <div class="wrap">
+    <span class="sec-tag">// get in touch</span>
+    <h2 class="sec-title">Let's build something with data.</h2>
+    <p class="sec-desc">Open to Data Analyst and Data Scientist roles. Reach out — I reply fast.</p>
+    <div class="contact-actions">
+      <a href="mailto:charanreddyjediga@gmail.com" class="btn btn-primary">Email Me ✉</a>
+      <a href="#" onclick="document.getElementById('resumeModal').style.display='flex';return false;" class="btn btn-ghost">View Resume 👁</a><a href="assets/resume1.pdf" download="Jidiga_Charan_Reddy_Resume.pdf" class="btn btn-ghost">Download ⭳</a>
+      <a href="https://linkedin.com/in/jidiga-charan-reddy-0b2a99229" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+  <footer class="wrap">
+    <div>© 2026 Jidiga Charan Reddy · Built with HTML, CSS & JS · Last updated July 2026</div>
+    <div class="foot-links">
+      <a href="https://github.com/okmijnuhb-maker" target="_blank" rel="noopener">GitHub</a>
+      <a href="tel:+919573098892">+91 9573098892</a>
+    </div>
+  </footer>
+</section>
+
+<div id="resumeModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;padding:20px;">  <div style="background:var(--surface);border-radius:12px;width:100%;max-width:800px;height:85vh;position:relative;overflow:hidden;">    <button onclick="document.getElementById('resumeModal').style.display='none';" style="position:absolute;top:12px;right:12px;background:var(--signal);color:var(--ink);border:none;width:32px;height:32px;border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:10;">✕</button>    <iframe src="assets/resume1.pdf" style="width:100%;height:100%;border:none;"></iframe>  </div></div>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Reduced motion respect
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(prefersReduced){
+    document.querySelectorAll('*').forEach(el => {
+      el.style.animation = 'none';
+      el.style.transition = 'none';
+    });
+  }
+
+  // Scroll reveal animation
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if(pageYOffset >= sectionTop){
+        current = section.getAttribute('id');
+      }
+    });
+    navAnchors.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === '#' + current){
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
